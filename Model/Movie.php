@@ -37,13 +37,12 @@ class Movie extends Product
 
     function printMovies()
     {
-        $this->setDiscount($this->title);
         $id = $this->id;
         $title = $this->title;
-        $overview = strlen($this->title) > 28 ? substr($this->title, 0, 28) . '...' : $this->title;
+        $overview = strlen($this->overview) > 28 ? substr($this->overview, 0, 28) . '...' : $this->overview;
         $vote = $this->printStars();
         $poster = $this->poster_path;
-        $genre = $this->printGenres();
+        $content = $this->printGenres();
         $price = $this->price;
         $quantity = $this->quantity;
         include __DIR__ . '/../View/card.php';

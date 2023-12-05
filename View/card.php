@@ -12,7 +12,7 @@
                 <?= $vote ?>
             </div>
             <div>
-                <?= $genre ?>
+                <?= $content ?>
             </div>
             <div>
                 <?= $quantity ?>

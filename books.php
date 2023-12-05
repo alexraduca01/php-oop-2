@@ -1,7 +1,7 @@
 <?php 
 
-include __DIR__ . '/Model/Movie.php';
-$movies = Movie::fetchAll();
+include __DIR__ . '/Model/Books.php';
+$books = Books::fetchAll();
 
 ?>
 
@@ -18,7 +18,7 @@ $movies = Movie::fetchAll();
 
     <body>
         <header>
-            <h1 class="text-center">Movies</h1>
+            <h1 class="text-center">Books</h1>
             <nav class="w-100 p-3 bg-secondary">
                 <ul class="list-unstyled d-flex justify-content-between my-3 container align-items-center">
                     <li><a class="text-white text-decoration-none fs-2" href="index.php">Movies</a></li>
@@ -29,8 +29,8 @@ $movies = Movie::fetchAll();
         </header>
         <main class="container py-5">
             <div class="row gy-5">
-                <?php foreach($movies as $movie){
-                    $movie->printMovies();
+                <?php foreach($books as $book){
+                    $book->printBooks();
                     
                 } ?>
             </div>
