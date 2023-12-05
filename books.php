@@ -18,7 +18,9 @@ $books = Books::fetchAll();
 
     <body>
         <header>
-            <h1 class="text-center">Books</h1>
+            <div class="d-flex justify-content-center">
+                <img src="https://media.tenor.com/IyweQyb3MhIAAAAi/the-rock-sus.gif" alt="The Rock">
+            </div>
             <nav class="w-100 p-3 bg-secondary">
                 <ul class="list-unstyled d-flex justify-content-between my-3 container align-items-center">
                     <li><a class="text-white text-decoration-none fs-2" href="index.php">Movies</a></li>
