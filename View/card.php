@@ -14,6 +14,10 @@
             <div>
                 <?= $genre ?>
             </div>
+            <div>
+                <?= $quantity ?>
+                <?= $price ?> €
+            </div>
         </div>
     </div>
     

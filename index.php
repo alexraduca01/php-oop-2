@@ -1,6 +1,7 @@
 <?php 
 
 include __DIR__ . '/Model/Movie.php';
+$movies = Movie::fetchAll();
 
 ?>
 
@@ -23,6 +24,7 @@ include __DIR__ . '/Model/Movie.php';
             <div class="row gy-5">
                 <?php foreach($movies as $movie){
                     $movie->printMovies();
+                    
                 } ?>
             </div>
         </main>
