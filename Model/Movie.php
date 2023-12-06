@@ -1,13 +1,11 @@
 <?php 
 
-include __DIR__ . '/../Traits/CreateCard.php';
 include __DIR__ . '/Genre.php';
 include __DIR__ . '/Product.php';
 
 class Movie extends Product
 {
 
-    use CreateCard;
     private $id;
     private $title;
     private $overview;
@@ -41,6 +39,8 @@ class Movie extends Product
     function printMovies()
     {
 
+        $this->createDiscount(rand(15, 85));
+
         $cardContent = [
             'id' => $this->id,
             'title' => $this->title,
@@ -50,6 +50,7 @@ class Movie extends Product
             'content' => $this->printGenres(),
             'price' => $this->price,
             'quantity' => $this->quantity,
+            'discount' => $this->setDiscount(),
         ];
         return $cardContent;
     }

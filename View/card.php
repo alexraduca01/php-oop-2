@@ -18,6 +18,11 @@
                 Amount: <?= $quantity ?>
                 Price: <?= $price ?> €
             </div>
+            <?php if(isset($discount) && $discount > 0) {?>
+                <div>
+                    Sconto: <?= $discount ?> %
+                </div>
+            <?php }?>
         </div>
     </div>
     

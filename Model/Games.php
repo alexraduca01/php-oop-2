@@ -1,12 +1,10 @@
 <?php 
 
 include __DIR__ . '/Product.php';
-include __DIR__ . '/../Traits/CreateCard.php';
 
 class Games extends Product 
 {
 
-    use CreateCard;
     public string $title;
     public string $poster;
 
@@ -19,6 +17,8 @@ class Games extends Product
 
     function printGames(){
 
+        $this->createDiscount(rand(15, 85));
+
         $cardContent = [
             'title' => $this->title,
             'poster' => $this->poster,
@@ -27,6 +27,7 @@ class Games extends Product
             'content' => '',
             'vote' => '',
             'overview' => '',
+            'discount' => $this->setDiscount(),
         ];
 
         return $cardContent;

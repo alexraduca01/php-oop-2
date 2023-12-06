@@ -1,12 +1,9 @@
 <?php 
 
 include __DIR__ . '/Product.php';
-include __DIR__ . '/../Traits/CreateCard.php';
 
 class Books extends Product
 {
-
-    use CreateCard;
     public string $title;
     public string $overview;
     public string $poster;
@@ -33,6 +30,8 @@ class Books extends Product
 
     function printBooks(){
 
+        $this->createDiscount(rand(15, 85));
+
         $cardContent = [
             'title' => $this->title,
             'overview' => strlen($this->overview) > 28 ? substr($this->overview, 0, 28) . '...' : $this->overview,
@@ -41,6 +40,7 @@ class Books extends Product
             'vote' => '',
             'price' => $this->price,
             'quantity' => $this->quantity,
+            'discount' => $this->setDiscount(),
         ];
         return $cardContent;
     }
