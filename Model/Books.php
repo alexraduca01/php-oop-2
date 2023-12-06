@@ -1,9 +1,12 @@
 <?php 
 
 include __DIR__ . '/Product.php';
+include __DIR__ . '/../Traits/CreateCard.php';
 
 class Books extends Product
 {
+
+    use CreateCard;
     public string $title;
     public string $overview;
     public string $poster;
@@ -22,21 +25,24 @@ class Books extends Product
     {
         $template = "<p>";
         for($n = 0; $n < count($this->content); $n++){
-            $template .= $this->content[$n] . ' ';
+            $template .= $this->content[$n] . ', ';
         }
         $template .= "</p>";
         return $template;
     }
 
     function printBooks(){
-        $title = $this->title;
-        $overview = strlen($this->overview) > 28 ? substr($this->overview, 0, 28) . '...' : $this->overview;
-        $poster = $this->poster;
-        $content = $this->printAuthors();
-        $vote = '';
-        $price = $this->price;
-        $quantity = $this->quantity;
-        include __DIR__ . '/../View/card.php';
+
+        $cardContent = [
+            'title' => $this->title,
+            'overview' => strlen($this->overview) > 28 ? substr($this->overview, 0, 28) . '...' : $this->overview,
+            'poster' => $this->poster,
+            'content' => $this->printAuthors(),
+            'vote' => '',
+            'price' => $this->price,
+            'quantity' => $this->quantity,
+        ];
+        return $cardContent;
     }
 
     public static function fetchAll(){

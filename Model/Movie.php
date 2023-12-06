@@ -1,10 +1,13 @@
 <?php 
 
+include __DIR__ . '/../Traits/CreateCard.php';
 include __DIR__ . '/Genre.php';
 include __DIR__ . '/Product.php';
 
 class Movie extends Product
 {
+
+    use CreateCard;
     private $id;
     private $title;
     private $overview;
@@ -37,15 +40,18 @@ class Movie extends Product
 
     function printMovies()
     {
-        $id = $this->id;
-        $title = $this->title;
-        $overview = strlen($this->overview) > 28 ? substr($this->overview, 0, 28) . '...' : $this->overview;
-        $vote = $this->printStars();
-        $poster = $this->poster_path;
-        $content = $this->printGenres();
-        $price = $this->price;
-        $quantity = $this->quantity;
-        include __DIR__ . '/../View/card.php';
+
+        $cardContent = [
+            'id' => $this->id,
+            'title' => $this->title,
+            'overview' => strlen($this->overview) > 28 ? substr($this->overview, 0, 28) . '...' : $this->overview,
+            'vote' => $this->printStars(),
+            'poster' => $this->poster_path,
+            'content' => $this->printGenres(),
+            'price' => $this->price,
+            'quantity' => $this->quantity,
+        ];
+        return $cardContent;
     }
 
     function printStars()

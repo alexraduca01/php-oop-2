@@ -32,7 +32,7 @@ $books = Books::fetchAll();
         <main class="container py-5">
             <div class="row gy-5">
                 <?php foreach($books as $book){
-                    $book->printBooks();
+                    $book->createCard($book->printBooks());
                     
                 } ?>
             </div>

@@ -32,7 +32,7 @@ $movies = Movie::fetchAll();
         <main class="container py-5">
             <div class="row gy-5">
                 <?php foreach($movies as $movie){
-                    $movie->printMovies();
+                    $movie->createCard($movie->printMovies());
                     
                 } ?>
             </div>

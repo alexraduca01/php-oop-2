@@ -1,9 +1,12 @@
 <?php 
 
 include __DIR__ . '/Product.php';
+include __DIR__ . '/../Traits/CreateCard.php';
 
 class Games extends Product 
 {
+
+    use CreateCard;
     public string $title;
     public string $poster;
 
@@ -15,14 +18,18 @@ class Games extends Product
     }
 
     function printGames(){
-        $title = $this->title;
-        $poster = $this->poster;
-        $price = $this->price;
-        $quantity = $this->quantity;
-        $content = '';
-        $vote = '';
-        $overview = '';
-        include __DIR__ . '/../View/card.php';
+
+        $cardContent = [
+            'title' => $this->title,
+            'poster' => $this->poster,
+            'price' => $this->price,
+            'quantity' => $this->quantity,
+            'content' => '',
+            'vote' => '',
+            'overview' => '',
+        ];
+
+        return $cardContent;
     }
 
     public static function fetchAll(){
